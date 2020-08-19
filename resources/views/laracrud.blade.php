@@ -28,7 +28,7 @@
                     <th>ID</th>
                     <th>Link</th>
                     <th>Description</th>
-                    <th>Edit or Delete</th>
+                    <!-- <th>Edit or Delete</th> -->
                 </tr>
             </thead>
             <tbody id="links-list" name="links-list">
@@ -37,12 +37,12 @@
                     <td>{{$link->id}}</td>
                     <td>{{$link->url}}</td>
                     <td>{{$link->description}}</td>
-                    <td>
+                    <!-- <td>
                         <button class="btn btn-info open-modal" value="{{$link->id}}">Edit
                         </button>
                         <button class="btn btn-danger delete-link" value="{{$link->id}}">Delete
                         </button>
-                    </td>
+                    </td> -->
                 </tr>
                 @endforeach
             </tbody>

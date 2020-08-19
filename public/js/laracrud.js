@@ -32,16 +32,16 @@ setInterval(function () {
         jQuery('#linkEditorModal').modal('show');
     });
     ////----- Open the modal to UPDATE a link -----////
-    jQuery('body').on('click', '.open-modal', function () {
-        var link_id = $(this).val();
-        $.get('links/' + link_id, function (data) {
-            jQuery('#link_id').val(data.id);
-            jQuery('#link').val(data.url);
-            jQuery('#description').val(data.description);
-            jQuery('#btn-save').val("update");
-            jQuery('#linkEditorModal').modal('show');
-        })
-    });
+    // jQuery('body').on('click', '.open-modal', function () {
+    //     var link_id = $(this).val();
+    //     $.get('links/' + link_id, function (data) {
+    //         jQuery('#link_id').val(data.id);
+    //         jQuery('#link').val(data.url);
+    //         jQuery('#description').val(data.description);
+    //         jQuery('#btn-save').val("update");
+    //         jQuery('#linkEditorModal').modal('show');
+    //     })
+    // });
     // Clicking the save button on the open modal for both CREATE and UPDATE
     $("#btn-save").click(function (e) {
         $.ajaxSetup({
@@ -70,8 +70,8 @@ setInterval(function () {
             dataType: 'json',
             success: function (data) {
                 var link = '<tr id="link' + data.id + '"><td>' + data.id + '</td><td>' + data.url + '</td><td>' + data.description + '</td>';
-                link += '<td><button class="btn btn-info open-modal" value="' + data.id + '">Edit</button>&nbsp;';
-                link += '<button class="btn btn-danger delete-link" value="' + data.id + '">Delete</button></td></tr>';
+                // link += '<td><button class="btn btn-info open-modal" value="' + data.id + '">Edit</button>&nbsp;';
+                // link += '<button class="btn btn-danger delete-link" value="' + data.id + '">Delete</button></td></tr>';
                 if (state == "add") {
                         jQuery('#links-list').append(link);
                 } else {
@@ -88,23 +88,23 @@ setInterval(function () {
     });
  
     ////----- DELETE a link and remove from the page -----////
-    jQuery('.delete-link').click(function () {
-        var link_id = $(this).val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "DELETE",
-            url: 'links/' + link_id,
-            success: function (data) {
-                console.log(data);
-                $("#link" + link_id).remove();
-            },
-            error: function (data) {
-                console.log('Error:', data);
-            }
-        });
-    });
+    // jQuery('.delete-link').click(function () {
+    //     var link_id = $(this).val();
+    //     $.ajaxSetup({
+    //         headers: {
+    //             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
+    //     $.ajax({
+    //         type: "DELETE",
+    //         url: 'links/' + link_id,
+    //         success: function (data) {
+    //             console.log(data);
+    //             $("#link" + link_id).remove();
+    //         },
+    //         error: function (data) {
+    //             console.log('Error:', data);
+    //         }
+    //     });
+    // });
 });

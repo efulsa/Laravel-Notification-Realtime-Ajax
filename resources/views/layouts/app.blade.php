@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
  
-    <title>Laravel AJAX CRUD</title>
+    <title>Laravel Notification Ajax</title>
     <link href="{{url('css/app.css')}}" rel="stylesheet">
 </head>
  
